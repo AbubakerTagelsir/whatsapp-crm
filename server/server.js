@@ -19,12 +19,10 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(bodyParser.json());
 
-// const allRoutes = require('./routes');
+const allRoutes = require('./routes');
 
-// app.use('/', allRoutes);
+app.use('/api', allRoutes);
 
-require('./routes/auth')(app);
-require('./routes/user')(app);
 
 const port = process.env.PORT || 8069;
 
