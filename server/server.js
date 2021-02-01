@@ -27,7 +27,7 @@ app.use('/api', allRoutes);
 const port = process.env.PORT || 8069;
 
 mongoose
-    .connect(process.env.DB_HOST,{
+    .connect(process.env.MONGODB_URI,{
         useCreateIndex: true,
         useUnifiedTopology: true,
         useNewUrlParser: true,
