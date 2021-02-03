@@ -4,9 +4,11 @@
   "description": "",
   "main": "server/server.js",
   "scripts": {
-    "start": "node server/server.js",
-    "dev": "nodemon server.js",
-    "servers": "concurrently \"npm run dev\" \"cd ../client && npm run start\""
+    "start-client": "react-scripts start",
+    "build": "react-scripts build && (cd ../server && npm install)",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "start": "cd server && npm start"
   },
   "keywords": [],
   "author": "Abubaker Tagelsir",

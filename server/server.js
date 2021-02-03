@@ -13,7 +13,10 @@ const corsOptions = {
     origin: "http://localhost:3000"
 };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
+
+const buildPath = path.join(__dirname, '..', 'client/build');
+app.use(express.static(buildPath));
 
 app.use(bodyParser.urlencoded({extended: true}));
 
