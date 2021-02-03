@@ -5,7 +5,7 @@
   "main": "server/server.js",
   "scripts": {
     "start-client": "react-scripts start",
-    "build": "react-scripts build && (cd ../server && npm install)",
+    "build": "(cd client && npm run build) && (cd ../ && npm install)",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "start": "cd server && npm start"
