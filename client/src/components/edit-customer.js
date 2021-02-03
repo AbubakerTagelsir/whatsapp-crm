@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import {SERVER_URL} from '../utils/constants';
 
 export default class EditCustomer extends Component {
     constructor(props){
@@ -20,7 +21,7 @@ export default class EditCustomer extends Component {
         this.onSubmit = this.onSubmit.bind(this);
     }
     componentDidMount() {
-        axios.get('http://localhost:8069/api/customer/'+this.props.match.params.id)
+        axios.get(SERVER_URL + '/api/customer/'+this.props.match.params.id)
             .then(response => {
                 this.setState({
                     name: response.data.name,
@@ -70,7 +71,7 @@ export default class EditCustomer extends Component {
             age: this.state.age
         };
         console.log(obj);
-        axios.put('http://localhost:8069/api/customer/'+this.props.match.params.id, obj)
+        axios.put(SERVER_URL + '/api/customer/'+this.props.match.params.id, obj)
             .then(res => console.log(res.data));
         
         this.props.history.push('/');

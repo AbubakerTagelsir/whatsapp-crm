@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
-
+import {SERVER_URL} from '../utils/constants';
 const Customer = props => (
     <tr>
         <td>{props.customer.name}</td>
@@ -23,7 +23,7 @@ export default class CustomersList extends Component {
     }
 
     componentDidMount(){
-        axios.get('http://localhost:8069/api/customer').then(res => {
+        axios.get(SERVER_URL + '/api/customer').then(res => {
             this.setState({customers: res.data});
         }).catch(err => console.log(err));
     }

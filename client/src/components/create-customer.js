@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import {SERVER_URL} from '../utils/constants';
 
 export default class CreateCustomer extends Component {
     constructor(props){
@@ -64,7 +65,7 @@ export default class CreateCustomer extends Component {
         }
         
         console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.");
-        const response = axios.post('http://localhost:8069/api/customer', newCustomer, {headers:{'x-auth-token':''}}).then(res => console.log(res));
+        const response = axios.post(SERVER_URL + '/api/customer', newCustomer, {headers:{'x-auth-token':''}}).then(res => console.log(res));
         console.log(response);
 
         this.setState({
