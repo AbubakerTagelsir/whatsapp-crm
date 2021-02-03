@@ -10,7 +10,7 @@ const app = express();
 
 //middlewares
 const corsOptions = {
-    origin: "http://localhost:8069"
+    origin: "http://localhost:3000"
 };
 
 app.use(cors(corsOptions));

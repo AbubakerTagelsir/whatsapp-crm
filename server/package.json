@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server/server.js",
     "dev": "nodemon server.js",
-    "servers": "concurrently \"npm run dev\" \"cd ../frontend && npm run start\""
+    "servers": "concurrently \"npm run dev\" \"cd ../client && npm run start\""
   },
   "keywords": [],
   "author": "Abubaker Tagelsir",
