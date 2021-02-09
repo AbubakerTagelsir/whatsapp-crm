@@ -22,6 +22,8 @@ import {
 } from "@material-ui/core";
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import ImageIcon from "@material-ui/icons/Image";
+import PeopleIcon from '@material-ui/icons/People';
+import CampaignsIcon from '@material-ui/icons/EventAvailable';
 import AccountBalanceIcon from "@material-ui/icons/AccountBalance";
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
 import MenuIcon from "@material-ui/icons/Menu";
@@ -167,35 +169,35 @@ function NavBar(props) {
       },
     },
     {
-      link: "/c/posts",
+      link: "/c/campaigns",
       name: "Campaigns",
       onClick: closeMobileDrawer,
       icon: {
         desktop: (
-          <ImageIcon
+          <CampaignsIcon
             className={
               selectedTab === "Campaigns" ? classes.textPrimary : "text-white"
             }
             fontSize="small"
           />
         ),
-        mobile: <ImageIcon className="text-white" />,
+        mobile: <CampaignsIcon className="text-white" />,
       },
     },
     {
-      link: "/c/posts",
+      link: "/c/clients",
       name: "Clients",
       onClick: closeMobileDrawer,
       icon: {
         desktop: (
-          <ImageIcon
+          <PeopleIcon
             className={
               selectedTab === "Clients" ? classes.textPrimary : "text-white"
             }
             fontSize="small"
           />
         ),
-        mobile: <ImageIcon className="text-white" />,
+        mobile: <PeopleIcon className="text-white" />,
       },
     },
     {

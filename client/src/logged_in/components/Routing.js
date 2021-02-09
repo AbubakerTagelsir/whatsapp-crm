@@ -4,6 +4,8 @@ import { Switch } from "react-router-dom";
 import { withStyles } from "@material-ui/core";
 import Dashboard from "./dashboard/Dashboard";
 import Posts from "./posts/Posts";
+import Clients from "./clients/Clients";
+import Campaigns from "./campaigns/Campaigns";
 import Subscription from "./subscription/Subscription";
 import PropsRoute from "../../shared/components/PropsRoute";
 
@@ -61,12 +63,26 @@ function Routing(props) {
     isAccountActivated,
     selectDashboard,
     selectPosts,
+    selectClients,
+    selectCampaigns,
     selectSubscription,
     openAddBalanceDialog,
   } = props;
   return (
     <div className={classes.wrapper}>
       <Switch>
+      <PropsRoute
+          path="/c/clients"
+          component={Clients}
+          EmojiTextArea={EmojiTextArea}
+          ImageCropper={ImageCropper}
+          Dropzone={Dropzone}
+          DateTimePicker={DateTimePicker}
+          pushMessageToSnackbar={pushMessageToSnackbar}
+          posts={posts}
+          setPosts={setPosts}
+          selectClients={selectClients}
+        />
         <PropsRoute
           path="/c/posts"
           component={Posts}
@@ -78,6 +94,18 @@ function Routing(props) {
           posts={posts}
           setPosts={setPosts}
           selectPosts={selectPosts}
+        />
+        <PropsRoute
+          path="/c/campaigns"
+          component={Campaigns}
+          EmojiTextArea={EmojiTextArea}
+          ImageCropper={ImageCropper}
+          Dropzone={Dropzone}
+          DateTimePicker={DateTimePicker}
+          pushMessageToSnackbar={pushMessageToSnackbar}
+          posts={posts}
+          setPosts={setPosts}
+          selectCampaigns={selectCampaigns}
         />
         <PropsRoute
           path="/c/subscription"
@@ -122,6 +150,8 @@ Routing.propTypes = {
   isAccountActivated: PropTypes.bool.isRequired,
   selectDashboard: PropTypes.func.isRequired,
   selectPosts: PropTypes.func.isRequired,
+  selectClients: PropTypes.func.isRequired,
+  selectCampaigns: PropTypes.func.isRequired,
   selectSubscription: PropTypes.func.isRequired,
   openAddBalanceDialog: PropTypes.func.isRequired,
 };

@@ -290,6 +290,94 @@ function Main(props) {
     setHasFetchedDateTimePicker,
   ]);
 
+  const selectClients = useCallback(() => {
+    smoothScrollTop();
+    document.title = "FiguresCRM - Clients";
+    setSelectedTab("Clients");
+    if (!hasFetchedEmojiTextArea) {
+      setHasFetchedEmojiTextArea(true);
+      import("../../shared/components/EmojiTextArea").then((Component) => {
+        setEmojiTextArea(Component.default);
+      });
+    }
+    if (!hasFetchedImageCropper) {
+      setHasFetchedImageCropper(true);
+      import("../../shared/components/ImageCropper").then((Component) => {
+        setImageCropper(Component.default);
+      });
+    }
+    if (!hasFetchedDropzone) {
+      setHasFetchedDropzone(true);
+      import("../../shared/components/Dropzone").then((Component) => {
+        setDropzone(Component.default);
+      });
+    }
+    if (!hasFetchedDateTimePicker) {
+      setHasFetchedDateTimePicker(true);
+      import("../../shared/components/DateTimePicker").then((Component) => {
+        setDateTimePicker(Component.default);
+      });
+    }
+  }, [
+    setSelectedTab,
+    setEmojiTextArea,
+    setImageCropper,
+    setDropzone,
+    setDateTimePicker,
+    hasFetchedEmojiTextArea,
+    setHasFetchedEmojiTextArea,
+    hasFetchedImageCropper,
+    setHasFetchedImageCropper,
+    hasFetchedDropzone,
+    setHasFetchedDropzone,
+    hasFetchedDateTimePicker,
+    setHasFetchedDateTimePicker,
+  ]);
+
+  const selectCampaigns = useCallback(() => {
+    smoothScrollTop();
+    document.title = "FiguresCRM - Campaigns";
+    setSelectedTab("Campaigns");
+    if (!hasFetchedEmojiTextArea) {
+      setHasFetchedEmojiTextArea(true);
+      import("../../shared/components/EmojiTextArea").then((Component) => {
+        setEmojiTextArea(Component.default);
+      });
+    }
+    if (!hasFetchedImageCropper) {
+      setHasFetchedImageCropper(true);
+      import("../../shared/components/ImageCropper").then((Component) => {
+        setImageCropper(Component.default);
+      });
+    }
+    if (!hasFetchedDropzone) {
+      setHasFetchedDropzone(true);
+      import("../../shared/components/Dropzone").then((Component) => {
+        setDropzone(Component.default);
+      });
+    }
+    if (!hasFetchedDateTimePicker) {
+      setHasFetchedDateTimePicker(true);
+      import("../../shared/components/DateTimePicker").then((Component) => {
+        setDateTimePicker(Component.default);
+      });
+    }
+  }, [
+    setSelectedTab,
+    setEmojiTextArea,
+    setImageCropper,
+    setDropzone,
+    setDateTimePicker,
+    hasFetchedEmojiTextArea,
+    setHasFetchedEmojiTextArea,
+    hasFetchedImageCropper,
+    setHasFetchedImageCropper,
+    hasFetchedDropzone,
+    setHasFetchedDropzone,
+    hasFetchedDateTimePicker,
+    setHasFetchedDateTimePicker,
+  ]);
+
   const selectSubscription = useCallback(() => {
     smoothScrollTop();
     document.title = "FiguresCRM - Subscription";
@@ -348,6 +436,8 @@ function Main(props) {
           targets={targets}
           selectDashboard={selectDashboard}
           selectPosts={selectPosts}
+          selectClients={selectClients}
+          selectCampaigns={selectCampaigns}
           selectSubscription={selectSubscription}
           openAddBalanceDialog={openAddBalanceDialog}
           setTargets={setTargets}
