@@ -78,11 +78,11 @@ const styles = theme => ({
 const infos = [
   {
     icon: <PhoneIcon />,
-    description: "+1 555 123456"
+    description: "+971 4 222 3733"
   },
   {
     icon: <MailIcon />,
-    description: "support@company.com"
+    description: "info@ufigures.ae"
   }
 ];
 
@@ -226,8 +226,9 @@ function Footer(props) {
               About the Company
             </Typography>
             <Typography style={{ color: "#8f9296" }} paragraph>
-              Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce
-              euismod convallis velit, eu auctor lacus vehicula sit amet.
+            Figures is a leading vendor of business management solutions since 2004. We deliver Enterprise resource Planning (ERP), Human Resource Management (HRMS), Customer Relationship Management (CRM), Accounting Software, Small Business Solution & other best-of-breed software. Over the last decade, we have humbly built the reputation of delivering value to more than 10 customers across industries.
+We are a process driven company, we believe a strong implementation methodology and people with successful experience is what differentiates us from the rest.
+Being in the technology space, it is necessary to stay relevant and up-to-date with the latest in technology.
             </Typography>
             <Box display="flex">
               {socialIcons.map((socialIcon, index) => (

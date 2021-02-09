@@ -35,7 +35,7 @@ function BlogPost(props) {
   const { classes, date, title, src, content, otherArticles } = props;
 
   useEffect(() => {
-    document.title = `WaVer - ${title}`;
+    document.title = `FiguresCRM - ${title}`;
     smoothScrollTop();
   }, [title]);
 
