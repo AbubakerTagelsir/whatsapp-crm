@@ -15,6 +15,7 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import SelfAligningImage from "../../../shared/components/SelfAligningImage";
 import HighlightedInformation from "../../../shared/components/HighlightedInformation";
 import ConfirmationDialog from "../../../shared/components/ConfirmationDialog";
+import ClientsTable from "./ClientsTable";
 
 const styles = {
   dBlock: { display: "block" },
@@ -128,7 +129,8 @@ function ClientContent(props) {
         </Button>
       </Toolbar>
       <Divider />
-      {printImageGrid()}
+      {/* {printImageGrid()} */}
+      <ClientsTable clients={[]}/>
       <TablePagination
         component="div"
         count={posts.length}
