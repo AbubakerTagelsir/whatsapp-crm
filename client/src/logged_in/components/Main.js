@@ -56,10 +56,16 @@ function Main(props) {
   const [pushMessageToSnackbar, setPushMessageToSnackbar] = useState(null);
 
   const fetchClients = useCallback(async ()=>{
-    const clientsResponse = await axios.get('/api/customer');
-    console.log(clientsResponse);
+    const clientsResponse = await axios.get(SERVER_URL + '/api/customer');
+    const clientsList = [];
     if (clientsResponse.status === 200){
-      setClients(clientsResponse.data);
+      console.log("setting clients data ..");
+      clientsResponse.data.forEach(client => {
+        clientsList.push(client);
+        console.log(`Client ${client.name} && `);
+      });
+        setClients(clientsList);
+      console.log(`After response ${clients}`);
     } else {
       console.log("EREAFDSA@#@");
     }

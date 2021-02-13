@@ -1,19 +1,19 @@
 import React, { useState, useCallback } from "react";
 import PropTypes from "prop-types";
 import {
-  Grid,
-  TablePagination,
+  // Grid,
+  // TablePagination,
   Divider,
   Toolbar,
   Typography,
   Button,
   Paper,
-  Box,
+  // Box,
   withStyles,
 } from "@material-ui/core";
-import DeleteIcon from "@material-ui/icons/Delete";
-import SelfAligningImage from "../../../shared/components/SelfAligningImage";
-import HighlightedInformation from "../../../shared/components/HighlightedInformation";
+// import DeleteIcon from "@material-ui/icons/Delete";
+// import SelfAligningImage from "../../../shared/components/SelfAligningImage";
+// import HighlightedInformation from "../../../shared/components/HighlightedInformation";
 import ConfirmationDialog from "../../../shared/components/ConfirmationDialog";
 import ClientsTable from "./ClientsTable";
 
@@ -25,7 +25,7 @@ const styles = {
   },
 };
 
-const rowsPerPage = 25;
+// const rowsPerPage = 25;
 
 function ClientContent(props) {
   const {
@@ -36,7 +36,7 @@ function ClientContent(props) {
     clients,
     classes,
   } = props;
-  const [page, setPage] = useState(0);
+  // const [page, setPage] = useState(0);
   const [isDeletePostDialogOpen, setIsDeletePostDialogOpen] = useState(false);
   const [isDeletePostDialogLoading, setIsDeletePostDialogLoading] = useState(
     false
@@ -67,56 +67,56 @@ function ClientContent(props) {
     closeDeletePostDialog,
   ]);
 
-  const onDelete = useCallback(() => {
-    setIsDeletePostDialogOpen(true);
-  }, [setIsDeletePostDialogOpen]);
+  // const onDelete = useCallback(() => {
+  //   setIsDeletePostDialogOpen(true);
+  // }, [setIsDeletePostDialogOpen]);
 
-  const handleChangePage = useCallback(
-    (__, page) => {
-      setPage(page);
-    },
-    [setPage]
-  );
+  // const handleChangePage = useCallback(
+  //   (__, page) => {
+  //     setPage(page);
+  //   },
+  //   [setPage]
+  // );
 
-  const printImageGrid = useCallback(() => {
-    if (posts.length > 0) {
-      return (
-        <Box p={1}>
-          <Grid container spacing={1}>
-            {posts
-              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((post) => (
-                <Grid item xs={6} sm={4} md={3} key={post.id}>
-                  <SelfAligningImage
-                    src={post.src}
-                    title={post.name}
-                    timeStamp={post.timestamp}
-                    options={[
-                      {
-                        name: "Delete",
-                        onClick: () => {
-                          onDelete(post);
-                        },
-                        icon: <DeleteIcon />,
-                      },
-                    ]}
-                  />
-                </Grid>
-              ))}
-          </Grid>
-        </Box>
-      );
-    }
-    return (
-      <Box m={2}>
-        <HighlightedInformation>
-          No posts added yet. Click on &quot;NEW&quot; to create your first one.
-        </HighlightedInformation>
-      </Box>
-    );
-  }, [posts, onDelete, page]);
-  console.log("Clients List Content:  ");
-  console.log(clients);
+  // const printImageGrid = useCallback(() => {
+  //   if (posts.length > 0) {
+  //     return (
+  //       <Box p={1}>
+  //         <Grid container spacing={1}>
+  //           {posts
+  //             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+  //             .map((post) => (
+  //               <Grid item xs={6} sm={4} md={3} key={post.id}>
+  //                 <SelfAligningImage
+  //                   src={post.src}
+  //                   title={post.name}
+  //                   timeStamp={post.timestamp}
+  //                   options={[
+  //                     {
+  //                       name: "Delete",
+  //                       onClick: () => {
+  //                         onDelete(post);
+  //                       },
+  //                       icon: <DeleteIcon />,
+  //                     },
+  //                   ]}
+  //                 />
+  //               </Grid>
+  //             ))}
+  //         </Grid>
+  //       </Box>
+  //     );
+  //   }
+  //   return (
+  //     <Box m={2}>
+  //       <HighlightedInformation>
+  //         No posts added yet. Click on &quot;NEW&quot; to create your first one.
+  //       </HighlightedInformation>
+  //     </Box>
+  //   );
+  // }, [posts, onDelete, page]);
+  // console.log("Clients List Content:  ");
+  // console.log(clients);
   return (
     <Paper>
       <Toolbar className={classes.toolbar}>
@@ -133,7 +133,7 @@ function ClientContent(props) {
       <Divider />
       {/* {printImageGrid()} */}
       <ClientsTable clients={clients}/>
-      <TablePagination
+      {/* <TablePagination
         component="div"
         count={posts.length}
         rowsPerPage={rowsPerPage}
@@ -152,7 +152,7 @@ function ClientContent(props) {
           caption: posts.length > 0 ? classes.dBlock : classes.dNone,
         }}
         labelRowsPerPage=""
-      />
+      /> */}
       <ConfirmationDialog
         open={isDeletePostDialogOpen}
         title="Confirmation"

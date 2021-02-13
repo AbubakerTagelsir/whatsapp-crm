@@ -81,7 +81,7 @@ function Routing(props) {
           DateTimePicker={DateTimePicker}
           pushMessageToSnackbar={pushMessageToSnackbar}
           posts={posts}
-          cliets={clients}
+          clients={clients}
           setPosts={setPosts}
           selectClients={selectClients}
         />

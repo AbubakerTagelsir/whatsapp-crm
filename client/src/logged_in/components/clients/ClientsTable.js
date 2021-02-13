@@ -9,10 +9,10 @@ import {
   withStyles
 } from "@material-ui/core";
 import EnhancedTableHead from "../../../shared/components/EnhancedTableHead";
-import ColorfulChip from "../../../shared/components/ColorfulChip";
-import unixToDateString from "../../../shared/functions/unixToDateString";
+// import ColorfulChip from "../../../shared/components/ColorfulChip";
+// import unixToDateString from "../../../shared/functions/unixToDateString";
 import HighlightedInformation from "../../../shared/components/HighlightedInformation";
-import currencyPrettyPrint from "../../../shared/functions/currencyPrettyPrint";
+// import currencyPrettyPrint from "../../../shared/functions/currencyPrettyPrint";
 
 const styles = theme => ({
   tableWrapper: {
@@ -44,22 +44,27 @@ const rows = [
   {
     id: "name",
     numeric: false,
-    label: "Action"
+    label: "Name"
   },
   {
-    id: "balanceChange",
+    id: "email",
     numeric: false,
-    label: "Balance change"
+    label: "Email"
   },
   {
-    id: "date",
+    id: "phone",
     numeric: false,
-    label: "Date"
+    label: "Phone"
   },
   {
-    id: "paidUntil",
+    id: "address",
     numeric: false,
-    label: "Paid until"
+    label: "Address"
+  },
+  {
+    id: "age",
+    numeric: false,
+    label: "Age"
   }
 ];
 
@@ -75,8 +80,6 @@ function ClientsTable(props) {
     },
     [setPage]
   );
-  console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-  console.log(clients);
   if (clients.length > 0) {
     return (
       <div className={classes.tableWrapper}>
@@ -85,37 +88,46 @@ function ClientsTable(props) {
           <TableBody>
             {clients
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((transaction, index) => (
+              .map((client, index) => (
                 <TableRow hover tabIndex={-1} key={index}>
                   <TableCell
                     component="th"
                     scope="row"
                     className={classes.firstData}
                   >
-                    {transaction.description}
+                    {client.name}
                   </TableCell>
                   <TableCell component="th" scope="row">
-                    {transaction.balanceChange > 0 ? (
+                    {/* {client.phone > 0 ? (
                       <ColorfulChip
                         label={`+${currencyPrettyPrint(
-                          transaction.balanceChange
+                          client.phone
                         )}`}
                         color={theme.palette.secondary.main}
                       />
                     ) : (
                       <ColorfulChip
-                        label={currencyPrettyPrint(transaction.balanceChange)}
+                        label={currencyPrettyPrint(client.email)}
                         color={theme.palette.error.dark}
                       />
-                    )}
+                    )} */}
+                    {client.email}
                   </TableCell>
                   <TableCell component="th" scope="row">
-                    {unixToDateString(transaction.timestamp)}
+                    {/* {unixToDateString(client.age)} */}
+                    {client.phone}
                   </TableCell>
                   <TableCell component="th" scope="row">
-                    {transaction.paidUntil
-                      ? unixToDateString(transaction.paidUntil)
-                      : ""}
+                    {/* {client.address
+                      ? unixToDateString(client.address)
+                      : ""} */}
+                      {client.address}
+                  </TableCell>
+                  <TableCell component="th" scope="row">
+                    {/* {client.address
+                      ? unixToDateString(client.address)
+                      : ""} */}
+                      {client.age}
                   </TableCell>
                 </TableRow>
               ))}
