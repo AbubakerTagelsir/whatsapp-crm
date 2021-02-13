@@ -13,6 +13,7 @@ function Clients(props) {
     pushMessageToSnackbar,
     posts,
     setPosts,
+    clients,
   } = props;
   const [isAddPostPaperOpen, setIsAddPostPaperOpen] = useState(false);
 
@@ -41,6 +42,7 @@ function Clients(props) {
   return <ClientContent
     openAddPostModal={openAddPostModal}
     posts={posts}
+    clients={clients}
     setPosts={setPosts}
     pushMessageToSnackbar={pushMessageToSnackbar}
   />
@@ -52,6 +54,7 @@ Clients.propTypes = {
   Dropzone: PropTypes.elementType,
   DateTimePicker: PropTypes.elementType,
   posts: PropTypes.arrayOf(PropTypes.object).isRequired,
+  clients: PropTypes.arrayOf(PropTypes.object).isRequired,
   setPosts: PropTypes.func.isRequired,
   pushMessageToSnackbar: PropTypes.func,
   selectClients: PropTypes.func.isRequired,

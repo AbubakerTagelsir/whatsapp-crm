@@ -8,7 +8,8 @@ import ConsecutiveSnackbarMessages from "../../shared/components/ConsecutiveSnac
 import smoothScrollTop from "../../shared/functions/smoothScrollTop";
 import persons from "../dummy_data/persons";
 import LazyLoadAddBalanceDialog from "./subscription/LazyLoadAddBalanceDialog";
-
+import axios from 'axios';
+import { SERVER_URL } from "../../utils/constants";
 const styles = (theme) => ({
   main: {
     marginLeft: theme.spacing(9),
@@ -45,6 +46,7 @@ function Main(props) {
     false
   );
   const [transactions, setTransactions] = useState([]);
+  const [clients, setClients] = useState([]);
   const [statistics, setStatistics] = useState({ views: [], profit: [] });
   const [posts, setPosts] = useState([]);
   const [targets, setTargets] = useState([]);
@@ -53,6 +55,15 @@ function Main(props) {
   const [isAddBalanceDialogOpen, setIsAddBalanceDialogOpen] = useState(false);
   const [pushMessageToSnackbar, setPushMessageToSnackbar] = useState(null);
 
+  const fetchClients = useCallback(async ()=>{
+    const clientsResponse = await axios.get('/api/customer');
+    console.log(clientsResponse);
+    if (clientsResponse.status === 200){
+      setClients(clientsResponse.data);
+    } else {
+      console.log("EREAFDSA@#@");
+    }
+  },[setClients]);
   const fetchRandomTargets = useCallback(() => {
     const targets = [];
     for (let i = 0; i < 35; i += 1) {
@@ -395,9 +406,11 @@ function Main(props) {
     fetchRandomTargets();
     fetchRandomStatistics();
     fetchRandomTransactions();
+    fetchClients();
     fetchRandomMessages();
     fetchRandomPosts();
   }, [
+    fetchClients,
     fetchRandomTargets,
     fetchRandomStatistics,
     fetchRandomTransactions,
@@ -434,6 +447,8 @@ function Main(props) {
           statistics={statistics}
           posts={posts}
           targets={targets}
+          clients={clients}
+          setClients={setClients}
           selectDashboard={selectDashboard}
           selectPosts={selectPosts}
           selectClients={selectClients}

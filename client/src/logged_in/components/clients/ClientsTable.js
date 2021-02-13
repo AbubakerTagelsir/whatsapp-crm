@@ -75,7 +75,8 @@ function ClientsTable(props) {
     },
     [setPage]
   );
-
+  console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+  console.log(clients);
   if (clients.length > 0) {
     return (
       <div className={classes.tableWrapper}>

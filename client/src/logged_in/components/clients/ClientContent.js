@@ -33,6 +33,7 @@ function ClientContent(props) {
     setPosts,
     posts,
     openAddPostModal,
+    clients,
     classes,
   } = props;
   const [page, setPage] = useState(0);
@@ -114,7 +115,8 @@ function ClientContent(props) {
       </Box>
     );
   }, [posts, onDelete, page]);
-
+  console.log("Clients List Content:  ");
+  console.log(clients);
   return (
     <Paper>
       <Toolbar className={classes.toolbar}>
@@ -130,7 +132,7 @@ function ClientContent(props) {
       </Toolbar>
       <Divider />
       {/* {printImageGrid()} */}
-      <ClientsTable clients={[]}/>
+      <ClientsTable clients={clients}/>
       <TablePagination
         component="div"
         count={posts.length}
@@ -167,6 +169,7 @@ ClientContent.propTypes = {
   openAddPostModal: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired,
   posts: PropTypes.arrayOf(PropTypes.object).isRequired,
+  clients: PropTypes.arrayOf(PropTypes.object).isRequired,
   setPosts: PropTypes.func.isRequired,
   pushMessageToSnackbar: PropTypes.func,
 };
